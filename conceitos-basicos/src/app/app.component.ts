@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { MinhapaginaComponent } from './minhapagina/minhapagina.component';
-import { HelloWorldComponent } from './helloworld/hellowordl.component';
+
+import { CalculadoraComponent } from './calculadora/calculadora.component';
 // importa os componentes criados para ser possivel utiliza-los
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, HelloWorldComponent, MinhapaginaComponent],
+  imports: [CalculadoraComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
