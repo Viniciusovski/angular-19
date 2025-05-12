@@ -1,19 +1,29 @@
 <div class="container">
     <div class="form-box">
-        <form>
+        <!-- #frm="ngForm" Define o form como controlado pelo Angular -->
+        <form #frm="ngForm">
             <h2>Calculadora</h2>
             <label for="numero1"> Número 1</label>
-            <input type="number" name="numero1" id="numero1"/>
+             <!-- Referencia a variavel numero1 do componete no html. [()] = Two way data binding. "ngModel" -->
+             <!--
+            Essa linha é um campo de entrada numérica em HTML que está vinculado a uma variável numero1 em um componente Angular,
+            utilizando a diretiva ngModel para realizar a ligação de dados bidirecional (two-way binding). 
+            Isso significa que o valor do campo de entrada é atualizado automaticamente quando a variável numero1 é alterada, 
+            e vice-versa.
+            -->
+            <input type="number" name="numero1" id="numero1" [(ngModel)] = "numero1"/>
 
             
             <label for="numero2"> Número 2</label>
-            <input type="number" name="numero2" id="numero2"/>
+            <input type="number" name="numero2" id="numero2" [(ngModel)] = "numero2"/>
 
-            <button type="submit">Somar</button>
+            <!-- Quando clicado, executa a função calcularResultado() em um contexto de Angular. O (click) é um evento de clique que chama a função especificada.-->
+            <button type="button" (click)="calcularResultado();">Somar</button>
         </form>
         
         <div class="result-display">
-            <p>Resultado: <span id="result">Valor</span></p>
+            <!-- {{}} Referencia a variavel resultado do componete no html -->
+            <p>Resultado: <span id="result">{{ resultado }}</span></p>
         </div>        
     
     </div>
