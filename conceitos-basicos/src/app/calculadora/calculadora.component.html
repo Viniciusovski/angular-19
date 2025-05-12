@@ -1,7 +1,8 @@
 <div class="container">
     <div class="form-box">
         <!-- #frm="ngForm" Define o form como controlado pelo Angular -->
-        <form #frm="ngForm">
+        <!-- ngSubmit chama a funcao calcularResultado	ao submeter o form -->
+        <form #frm="ngForm" (ngSubmit)="calcularResultado()">
             <h2>Calculadora</h2>
             <label for="numero1"> Número 1</label>
              <!-- Referencia a variavel numero1 do componete no html. [()] = Two way data binding. "ngModel" -->
@@ -17,8 +18,8 @@
             <label for="numero2"> Número 2</label>
             <input type="number" name="numero2" id="numero2" [(ngModel)] = "numero2"/>
 
-            <!-- Quando clicado, executa a função calcularResultado() em um contexto de Angular. O (click) é um evento de clique que chama a função especificada.-->
-            <button type="button" (click)="calcularResultado();">Somar</button>
+            
+            <button type="submit">Somar</button>
         </form>
         
         <div class="result-display">
