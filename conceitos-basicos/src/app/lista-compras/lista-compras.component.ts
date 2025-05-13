@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ItemLista } from './itemlista';
+import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-lista-compras',
-  imports: [ FormsModule ],
+  imports: [ FormsModule, CommonModule ],
   templateUrl: './lista-compras.component.html',
   styleUrl: './lista-compras.component.scss'
 })
@@ -20,7 +21,6 @@ export class ListaComprasComponent {
     // push add um elemento no array
     this.lista.push(itemLista);
 
-    // table imprime o array em forma de tabela
-      console.table(this.lista);
+    this.item = '';
   }
 }
