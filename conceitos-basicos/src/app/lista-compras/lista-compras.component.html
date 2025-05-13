@@ -4,6 +4,8 @@
     <form #frm = "ngForm" class="add-item-form" (ngSubmit)="adicionarItem()">
         <input type="text" id="item" name="item" [(ngModel)]="item" placeholder="Digite o nome do item"/>
         <button type="submit">Adicionar</button>
+
+        <button type="button" (click)="limparLista()" >Limpar Lista</button>
     </form>
 
     <table>
@@ -23,8 +25,17 @@
             @for(elemento of lista; track elemento.id){
                 <tr>
                     <td>{{elemento.id}}</td>
-                    <td>{{elemento.nome}}</td>
-                    <td><input type="checkbox"></td>
+                    <!-- [ngClass] = adiciona uma classe ao elemento de forma dinamica-->
+
+                    <!-- o ngClass verifica se o item esta comprado e coloca a classe 'item-riscado' no span, 
+                     para que o texto fique riscado. Só faz isso quando o que
+                     estiver depois do : for verdadeiro
+                      -->                    
+                    <td><span [ngClass]="{'item-riscado' : elemento.comprado}">{{elemento.nome}}</span></td>
+
+                    <!-- Propriedade [checked] = se o checkbox estiver marcado-->
+                    <!-- Evento (click) = ao clicar chama do método riscarItem-->
+                    <td><input type="checkbox" (click)="riscarItem(elemento)" [checked]="elemento.comprado"></td>
                 </tr>
 
             } @empty { <!-- o else do for, define o acontece se a lista for vazia-->
@@ -47,3 +58,14 @@
         </tbody>
     </table>
 </div>
+
+<!--
+[()] = Recebe e envia dados dos componentes (bidirecionais)
+[] = Recebe valor do componente
+{{}} = String interpolation, um tipo de one-way binding que permite
+        inserir valores de variáveis do componente em um template.
+        Exemplo: {{variavel}}.
+() = Event Binding, um tipo de one-way binding que permite 
+        chamar um método do componente quando um evento ocorre.
+        Exemplo: (click)="metodo()".
+-->

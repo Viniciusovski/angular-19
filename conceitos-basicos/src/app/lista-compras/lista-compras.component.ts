@@ -23,4 +23,14 @@ export class ListaComprasComponent {
 
     this.item = '';
   }
+
+  riscarItem(itemLista: ItemLista) {
+    // Inverte o estado de 'comprado' do item na lista de compras
+    itemLista.comprado = !itemLista.comprado;
+  }
+
+  limparLista(){
+    this.lista = [];
+  }
+
 }
