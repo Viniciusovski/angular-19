@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import {MatButtonModule} from '@angular/material/button';
+import { MatToolbarModule } from '@angular/material/toolbar'; 
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, MatButtonModule],
+  // RouterOutlet é o roteador da aplicação que é usada para acessar as rotas
+  // Onde coloca o RouterOutlet é onde as páginas vão aparecer
+  imports: [RouterOutlet, MatToolbarModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
