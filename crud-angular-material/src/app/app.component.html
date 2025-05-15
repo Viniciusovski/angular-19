@@ -1,8 +1,15 @@
 <mat-toolbar color="primary">
   <span>Cadastro de Clientes</span>
   <span class="spacer"></span>
-  <a>Formulário</a>
-  <a>Consulta</a>
+  <a routerLink="/cadastro">
+    <!-- Os fontIcons são encontrados em fonts.google.com/icons-->
+    <mat-icon fontIcon="feed"></mat-icon>
+    Formulário
+  </a>
+  <a routerLink="/consulta">
+     <mat-icon fontIcon="search"></mat-icon>
+    Consulta
+  </a>
 </mat-toolbar>
 <!-- Onde coloca o RouterOutlet é onde as páginas vão aparecer -->
 <router-outlet></router-outlet>
