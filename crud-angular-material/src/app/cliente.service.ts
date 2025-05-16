@@ -8,12 +8,26 @@ import { Cliente } from './cadastro/cliente';
 })
 export class ClienteService {
 
+  // Constante que define o nome do repositório de clientes no localStorage.
+  // Ela é utilizada para definir o nome do item que será salvo no localStorage.
   static REPO_CLIENTES = "_CLIENTES";
 
   constructor() { }
 
+  /**
+   * Salva um cliente no localStorage.
+   * 
+   * Primeiro, ele verifica se o repositório de clientes existe no localStorage.
+   * Se ele existir, o cliente é adicionado ao array de clientes.
+   * Se ele não existir, o array de clientes é criado e o cliente é adicionado a ele.
+   * 
+   * @param cliente O cliente que será salvo.
+   */
   salvar(cliente: Cliente){
-    console.log("Dados Cliente: ", cliente);
+    const storage = this.obterStorage();
+    storage.push(cliente);
+
+    localStorage.setItem(ClienteService.REPO_CLIENTES, JSON.stringify(storage));
   }
 
   /**
