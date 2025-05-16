@@ -12,3 +12,5 @@ Instalação: ng add @angular/flex-layout@15.0.0-beta.42
 
 Biblioteca que a gente vai estar adicionando vai ser o universo Unique ID. Essa biblioteca vai auxiliar na parte lógica de criar um ID para o cliente.
 Instalação: ng add uuid@11.0.2
+
+Crir a parte lógica aplicação é feito na service, como conectar com a API ou salvar na local storage. Para criar uma service digite o comando: ng generate service {nome}. Tb Pode ser bg generate s {nome}
