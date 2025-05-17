@@ -51,8 +51,20 @@ export class ClienteService {
     return clientes;
   }
 
-  pesquisarClientes(nome: string) : Cliente[]{
-    return this.obterStorage();
+  pesquisarClientes(nomeBusca: string) : Cliente[]{
+    
+    const clientes = this.obterStorage();
+    
+    if(!nomeBusca){
+      return clientes;
+    }
+
+    // O indexOf() retorna a posição do valor especificado na string.
+    // Caso o valor especificado não seja encontrado, o indexOf() retorna -1.
+    // Nesse caso, o filter() vai retornar os clientes que o nome contiver o valor especificado,
+    // pois o indexOf() vai retornar um valor diferente de -1.
+    // Isso significa que o filter() vai retornar todos os clientes que o nome contiver o valor especificado.
+    return clientes.filter(c => c.nome?.indexOf(nomeBusca) !== -1);
   }
 
 }
