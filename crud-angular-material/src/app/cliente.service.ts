@@ -37,7 +37,7 @@ export class ClienteService {
    * 
    * Retorna uma lista de clientes.
    */
-  obterStorage() : Cliente[]{
+  private obterStorage() : Cliente[]{
     const repositorioClientes = localStorage.getItem(ClienteService.REPO_CLIENTES);
 
     if(repositorioClientes){
@@ -50,4 +50,9 @@ export class ClienteService {
     localStorage.setItem(ClienteService.REPO_CLIENTES, JSON.stringify(clientes));
     return clientes;
   }
+
+  pesquisarClientes(nome: string) : Cliente[]{
+    return this.obterStorage();
+  }
+
 }
