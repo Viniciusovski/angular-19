@@ -31,6 +31,17 @@ export class ClienteService {
   }
 
   /**
+   * Busca um cliente no localStorage pelo seu id.
+   * 
+   * @param id O id do cliente que será buscado.
+   * @returns O cliente encontrado, ou undefined se o cliente não existir.
+   */
+  buscarClientePorId(id: string) : Cliente | undefined{
+    const clientes = this.obterStorage();
+    return clientes.find(cliente => cliente.id === id)
+  }
+
+  /**
    * Retorna o repositório de clientes no localStorage.
    * Se o repositório não existir, ele é criado e 
    * um array vazio é salvo nele.
